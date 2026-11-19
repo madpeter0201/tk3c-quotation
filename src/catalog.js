@@ -23,6 +23,10 @@ const specificationFields = {
   ],
 };
 
+export function getSpecificationFields(category) {
+  return (specificationFields[category] ?? []).map(([label, key, unit]) => ({ label, key, unit }));
+}
+
 function normalizeText(value) {
   return String(value ?? '').normalize('NFKC').toLocaleLowerCase('zh-TW').replace(/[\s_-]+/g, '');
 }

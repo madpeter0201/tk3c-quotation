@@ -9,6 +9,7 @@
 - 示範商品與測試流程暫存於目前瀏覽器的 `localStorage`，不會跨瀏覽器或使用者同步。
 - PWA manifest 與 service worker 提供安裝資訊及應用程式殼層快取；正式資料仍需伺服器端儲存與權限控管。
 - 需求推薦是本機規則式篩選，並未串接 AI 模型。
+- B 商品資料庫可新增或編輯示範草稿，核准後才加入搜尋；審核角色仍為本機示範，沒有真正登入權限。
 
 ## 專案結構
 
@@ -18,10 +19,12 @@ manifest.webmanifest       PWA 安裝資訊
 sw.js                      靜態殼層離線快取
 src/app.js                 現有示範流程與介面
 src/catalog.js             商品規格定義、搜尋與類別篩選
+src/catalog-admin.js       示範商品草稿驗證與核准
 src/recommendations.js     本機需求解析與候選評分規則
 src/data/demo-products.js  公開展示用虛構商品
 src/styles.css             共用及響應式樣式
 tests/catalog.test.js      商品搜尋及規格測試
+tests/catalog-admin.test.js 商品草稿驗證與核准測試
 tests/recommendations.test.js 需求解析及候選評分測試
 docs/official-product-url-import.md 官方網址匯入可行性與資料正確性評估
 .github/workflows/pages.yml GitHub Pages 部署
