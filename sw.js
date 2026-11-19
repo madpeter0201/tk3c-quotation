@@ -1,6 +1,6 @@
 const CACHE_PREFIX = 'tk3c-demo-shell-';
 // Bump this version whenever a cached app asset changes.
-const CACHE_NAME = `${CACHE_PREFIX}v12`;
+const CACHE_NAME = `${CACHE_PREFIX}v13`;
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -11,6 +11,8 @@ const CORE_ASSETS = [
   './src/icons.js',
   './src/catalog.js',
   './src/catalog-admin.js',
+  './src/url-import-demo.js',
+  './src/url-import-view.js',
   './src/recommendations.js',
   './src/data/demo-products.js',
 ];

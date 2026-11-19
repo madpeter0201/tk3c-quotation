@@ -1,4 +1,5 @@
 import { getSpecificationFields } from './catalog.js';
+import { DEMO_PRODUCT_URL, inspectDemoProductUrl } from './url-import-demo.js';
 
 export const categories = ['手機', '筆電', '電視', '平板', '配件'];
 const numericSpecs = new Set(['screen', 'ram', 'weight', 'refreshRate']);
@@ -29,13 +30,18 @@ export function makeCatalogDraft(input, current, drafts, products, draftId) {
     } else specs[field.key] = raw;
   }
   const now = new Date().toISOString();
+  const demoSource = input.importSource?.kind === 'demo_url_fixture' && input.importSource.url === DEMO_PRODUCT_URL
+    ? inspectDemoProductUrl(DEMO_PRODUCT_URL, input.importSource.loadedAt || now).source
+    : null;
   return {
     id: draftId,
     productId: current?.id ?? null,
     status: 'pending',
     createdAt: now,
     candidate: { brand, name, model, category, marketPrice: price, specs,
-      source: { kind: 'demo_manual', note: sourceNote, capturedAt: now, priceType } },
+      source: demoSource
+        ? { ...demoSource, note: sourceNote, priceType }
+        : { kind: 'demo_manual', note: sourceNote, capturedAt: now, priceType } },
   };
 }
 

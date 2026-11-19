@@ -10,6 +10,7 @@
 - PWA manifest 與 service worker 提供安裝資訊及應用程式殼層快取；正式資料仍需伺服器端儲存與權限控管。
 - 需求推薦是本機規則式篩選，並未串接 AI 模型。
 - B 商品資料庫可新增或編輯示範草稿，核准後才加入搜尋；審核角色仍為本機示範，沒有真正登入權限。
+- 商品網址入口可貼上或從剪貼簿帶入網址；只有內建模擬網址會產生欄位預覽，再由使用者帶入建檔並送審。真實品牌網址不會被擷取或寫入 localStorage。
 
 ## 專案結構
 
@@ -20,11 +21,14 @@ sw.js                      靜態殼層離線快取
 src/app.js                 現有示範流程與介面
 src/catalog.js             商品規格定義、搜尋與類別篩選
 src/catalog-admin.js       示範商品草稿驗證與核准
+src/url-import-demo.js      模擬網址檢查、虛構商品欄位與來源快照
+src/url-import-view.js      網址匯入預覽介面
 src/recommendations.js     本機需求解析與候選評分規則
 src/data/demo-products.js  公開展示用虛構商品
 src/styles.css             共用及響應式樣式
 tests/catalog.test.js      商品搜尋及規格測試
 tests/catalog-admin.test.js 商品草稿驗證與核准測試
+tests/url-import-demo.test.js 模擬網址與來源追溯測試
 tests/recommendations.test.js 需求解析及候選評分測試
 docs/official-product-url-import.md 官方網址匯入可行性與資料正確性評估
 .github/workflows/pages.yml GitHub Pages 部署
