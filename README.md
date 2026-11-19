@@ -18,9 +18,12 @@ manifest.webmanifest       PWA 安裝資訊
 sw.js                      靜態殼層離線快取
 src/app.js                 現有示範流程與介面
 src/catalog.js             商品規格定義、搜尋與類別篩選
+src/recommendations.js     本機需求解析與候選評分規則
 src/data/demo-products.js  公開展示用虛構商品
 src/styles.css             共用及響應式樣式
 tests/catalog.test.js      商品搜尋及規格測試
+tests/recommendations.test.js 需求解析及候選評分測試
+docs/official-product-url-import.md 官方網址匯入可行性與資料正確性評估
 .github/workflows/pages.yml GitHub Pages 部署
 ```
 
@@ -37,7 +40,7 @@ npm test
 ## 分階段計畫
 
 1. **商品目錄基礎：** 模組化現有頁面、商品類別規格欄位、型號／別名／規格搜尋、響應式檢查與目錄測試。
-2. **正式資料治理：** 定義可追溯的商品來源、授權證明、匯入與審核流程，使用隔離的測試資料驗證。
+2. **正式資料治理：** 定義可追溯的商品來源、授權證明、匯入與審核流程；官方網址匯入先依 `docs/official-product-url-import.md` 建立後端及白名單，再以隔離測試資料驗證。
 3. **多人正式服務：** 規劃伺服器資料庫、身份驗證、權限、客戶專屬連結、報價分享與成交追蹤，再進行容量及安全驗證。
 4. **智慧推薦：** 先驗證需求欄位與評估方式；真正 AI 推薦需完成模型服務串接與結果驗證後才對外標示。
 
