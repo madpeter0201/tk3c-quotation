@@ -1,0 +1,14 @@
+{
+  "name": "TK3C報價通",
+  "short_name": "TK3C報價通",
+  "description": "以模擬商品進行選品、詢價與報價流程展示。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f6fa",
+  "theme_color": "#101e36",
+  "icons": [
+    { "src": "./assets/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
